@@ -5,7 +5,7 @@ Library             String
 Library             SeleniumLibrary
 
 *** Variables ***
-${BROWSER}          chrome
+${BROWSER}          headlesschrome
 ${ENV}              None
 @{ALLOWED_ENVS}     prod    stage
 
