@@ -137,5 +137,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# Robot results
+# Robot Framework
 results/
+.pabot-order
+pabot_results
