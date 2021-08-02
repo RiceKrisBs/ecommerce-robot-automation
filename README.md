@@ -67,9 +67,5 @@ It can either be run on entire directories, individual files, or it can search f
 ```
 
 ## TODO
-I am looking for a test case management system to hold test cases written for this personal project.
-The goal would be to find a system that:
-
-* Can hold individual test cases
-* Can create plans consisting of cases (or even better, suites of cases)
-* Can integrate with a listener to automatically update the plan during executation of the test cases
+This project will utilize [Qase](https://qase.io/) to record test cases.
+By finding a TCMS to hold actual test cases, I will be able to simulate creating regression runs and will be able to integrate with a listener that can automatically update test runs upon completion of the tests.
