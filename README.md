@@ -66,6 +66,30 @@ It can either be run on entire directories, individual files, or it can search f
 (venv) ~/ecommerce-robot-automation$ robotidy src/
 ```
 
-## TODO
-This project will utilize [Qase](https://qase.io/) to record test cases.
-By finding a TCMS to hold actual test cases, I will be able to simulate creating regression runs and will be able to integrate with a listener that can automatically update test runs upon completion of the tests.
+## Test Case Management
+This example project will utilize [Qase](https://qase.io/) to record test cases.
+Qase has a Robot Framework library ([qase-robotframework](https://github.com/qase-tms/qase-python/tree/master/qase-robotframework)) which can be used as a listener to automatically update a test run on Qase.io.
+To utilize the functionality, tests should be run from the `tests` folder so that the listener can read configurations from the `tox.ini` file:
+```
+(venv) ~/ecommerce-robot-automation/tests$ python -m robot --outputdir results/ -v env:prod --listener qaseio.robotframework.Listener .
+```
+
+Doing so will automatically create a test run in Qase and post the results.
+
+> NOTE: `tox.ini` has been added to the `.gitignore` as it includes an api token.
+> Please contact me and I can provide the required `tox.ini` file used to automatically update runs in Qase.
+
+This would be the most common situation, where control of which tests to include in a Qase run is done via Robot tags.
+If one wishes to update an existing run in Qase, that would be done by one of two methods:
+
+  1. In the `tox.ini` file, add the configuration `qase_run_id=<run id>`.
+  2. Include the environment variable `QASE_RUN_ID` when executing the tests.
+  The syntax for choosing this option will be different between Linux and Windows.
+
+### TODO
+I want to look into creating a second account on Qase and give it read access to the `ecommerce-robot-automation` project I created on Qase.
+This will show off the automatic updating capabilities.
+Note that the test cases written in Qase do not include steps; this is due to how the Qase library for Robot functions.
+Unless the steps in Qase match exactly with the keywords in Robot, multiple warnings are thrown to stdout during Robot execution.
+If no steps are in the Qase case, then no warnings are thrown.
+For purposes of this example project, I've elected to forgo Qase steps in favor of clear Robot keywords.

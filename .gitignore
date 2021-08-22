@@ -141,3 +141,4 @@ cython_debug/
 .pabotsuitenames
 pabot_results
 results/
+tox.ini
