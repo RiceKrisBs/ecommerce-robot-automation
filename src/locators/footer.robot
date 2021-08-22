@@ -1,3 +1,6 @@
+*** Settings ***
+Documentation       Locators for the global footer
+
 *** Variables ***
 # Newsletter container
 ${LOC_NEWSLETTER_TXT_BOX}       css=input#newsletter-input

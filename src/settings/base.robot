@@ -1,8 +1,7 @@
 *** Settings ***
 Documentation       Base environment setup file
 
-Library             String
-Library             SeleniumLibrary
+Resource            ./libraries.robot
 
 *** Variables ***
 ${BROWSER}          headlesschrome
